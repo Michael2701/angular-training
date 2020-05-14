@@ -1,0 +1,35 @@
+<h1>main works!</h1>
+<div class="search-container" *ngIf="pg$ | async as pg">
+  <mat-paginator
+    [length]="pg.length"
+    [pageSize]="pg.pageSize"
+    [pageSizeOptions]="pageSizeOptions"
+    (page)="onPageEvent($event)"
+  >
+  </mat-paginator>
+</div>
+<div class="search-container">
+  <div *ngIf="movies$ | async as movies" class="movies-container">
+    <div *ngFor="let movie of movies" class="movies-wrapper">
+      <app-movie-card
+        class="movie-card"
+        [title]="movie.title"
+        [img]="movie.img"
+        [description]="movie.discr"
+        [genre]="movie.genre"
+        [link]="movie.link"
+        [author]="movie.author"
+        [year]="movie.year"
+      ></app-movie-card>
+    </div>
+  </div>
+</div>
+<div class="search-container" *ngIf="pg$ | async as pg">
+  <mat-paginator
+    [length]="pg.length"
+    [pageSize]="pg.pageSize"
+    [pageSizeOptions]="pageSizeOptions"
+    (page)="onPageEvent($event)"
+  >
+  </mat-paginator>
+</div>

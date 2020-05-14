@@ -1,0 +1,45 @@
+<button
+  mat-icon-button
+  [matMenuTriggerFor]="menu"
+  aria-label="Example icon-button with a menu"
+>
+  <mat-icon class="lg-icon">menu</mat-icon>
+</button>
+<mat-menu #menu="matMenu">
+  <a routerLink="/" mat-menu-item>
+    <mat-icon>home</mat-icon>
+    <span>Home</span>
+  </a>
+  <a routerLink="search" mat-menu-item>
+    <mat-icon>search</mat-icon>
+    <span>Find a Movie</span>
+  </a>
+  <a routerLink="contact" mat-menu-item>
+    <mat-icon>mail_outline</mat-icon>
+    <span>Contact</span>
+  </a>
+
+  <div *ngIf="isLoggedObs | async as isLogged">
+    <a *ngIf="isLogged" routerLink="/dashboard" mat-menu-item>
+      <mat-icon>dashboard</mat-icon>
+      <span>Dashboard</span>
+    </a>
+    <button *ngIf="isLogged" mat-menu-item (click)="onLogout()">
+      <mat-icon>supervisor_account</mat-icon>
+      <span>Logout</span>
+    </button>
+  </div>
+
+  <div *ngIf="isNotLoggedObs | async as isNotLogged">
+    <button *ngIf="isNotLogged" mat-menu-item (click)="openLoginDialog()">
+      <mat-icon>supervisor_account</mat-icon>
+      <span>Login</span>
+    </button>
+    <button *ngIf="isNotLogged" mat-menu-item (click)="openSubscribeDialog()">
+      <mat-icon>input</mat-icon>
+      <span>Subscribe</span>
+    </button>
+  </div>
+
+
+</mat-menu>

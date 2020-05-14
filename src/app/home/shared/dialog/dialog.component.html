@@ -1,0 +1,17 @@
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+  <h1 mat-dialog-title>Enter credentianls</h1>
+  <div mat-dialog-content>
+    <mat-form-field>
+      <mat-label>Email</mat-label>
+      <input formControlName="email" matInput />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Password</mat-label>
+      <input formControlName="password" matInput />
+    </mat-form-field>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button type="button" (click)="onNoClick()">Close</button>
+    <button mat-button type="submit" cdkFocusInitial>Submit</button>
+  </div>
+</form>

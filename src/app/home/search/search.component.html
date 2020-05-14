@@ -1,0 +1,37 @@
+<div *ngIf="auto$ | async as auto">
+  <app-search-form
+    [years]="auto.years"
+    [countries]="auto.countries"
+    [genres]="auto.genres"
+    (onSearchEvent)="onSearchStart($event)"
+  ></app-search-form>
+</div>
+<div class="search-container" *ngIf="pg$ | async as pg">
+  <div *ngIf="pg.length > 0">
+    <mat-paginator
+      [length]="pg.length"
+      [pageSize]="pg.pageSize"
+      [pageIndex]="pg.pageIndex"
+      [pageSizeOptions]="pageSizeOptions"
+      (page)="onPageEvent($event)"
+    >
+    </mat-paginator>
+  </div>
+</div>
+
+<div *ngIf="movies$ | async as movies">
+  <app-movies [movies]="movies"></app-movies>
+</div>
+
+<div class="search-container" *ngIf="pg$ | async as pg">
+  <div *ngIf="pg.length > 0">
+    <mat-paginator
+      [length]="pg.length"
+      [pageSize]="pg.pageSize"
+      [pageIndex]="pg.pageIndex"
+      [pageSizeOptions]="pageSizeOptions"
+      (page)="onPageEvent($event)"
+    >
+    </mat-paginator>
+  </div>
+</div>

@@ -1,0 +1,43 @@
+<form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
+  <h1>Search for your favorite movie</h1>
+  <div class="outer-fields-wrapper">
+    <mat-form-field>
+      <mat-label>Movie Name</mat-label>
+      <input formControlName="title" matInput />
+      <button type="submit" mat-flat-button color="basic" matSuffix>
+        <mat-icon>search</mat-icon>
+      </button>
+    </mat-form-field>
+    <div class="inner-fields-wrapper">
+      <mat-form-field>
+        <mat-label>Genre</mat-label>
+        <input formControlName="genre" matInput [matAutocomplete]="genress" />
+        <mat-autocomplete  #genress="matAutocomplete">
+          <mat-option *ngFor="let genre of filteredGenreOptions | async" [value]="genre">
+            {{ genre }}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Year</mat-label>
+        <input formControlName="year" type="number" matInput [matAutocomplete]="yearss"/>
+        <mat-autocomplete  #yearss="matAutocomplete">
+          <mat-option *ngFor="let year of filteredYearsOptions | async" [value]="year">
+            {{ year }}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Country</mat-label>
+        <input formControlName="country" matInput [matAutocomplete]="countriess"/>
+        <mat-autocomplete  #countriess="matAutocomplete">
+          <mat-option *ngFor="let country of filteredCountryOptions | async" [value]="country">
+            {{ country }}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+    </div>
+  </div>
+</form>

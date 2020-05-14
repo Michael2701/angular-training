@@ -1,0 +1,19 @@
+form {
+    width: 100%;
+    display: grid;
+    margin: 0 auto;
+    h1 {
+      text-align: center;
+    }
+    .outer-fields-wrapper {
+      display: grid;
+      grid-template-columns: "100%";
+      grid-template-rows: "1fr 1fr";
+      .inner-fields-wrapper {
+        display: grid;
+        grid-template-rows: "100%";
+        grid-template-columns: repeat(3, 32%);
+        column-gap: 10px;
+      }
+    }
+  }

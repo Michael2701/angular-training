@@ -1,0 +1,14 @@
+<a href="{{link}}" target="_blank">
+  <div
+    class="movie-card"
+    [ngStyle]="{ 'background-image': 'url(' + img + ')' }"
+  >
+    <div class="movie-info">
+      <h2>{{ title }}</h2>
+      <p>Жанр: {{ genre }}</p>
+      <p>Режисер: {{ author }}</p>
+      <p>Год: {{ year }}</p>
+      <p>Описание: {{ description }}</p>
+    </div>
+  </div>
+</a>

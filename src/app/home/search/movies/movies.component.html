@@ -1,0 +1,16 @@
+<div class="search-container">
+    <div class="movies-container">
+      <div *ngFor="let movie of movies" class="movies-wrapper">
+        <app-movie-card
+          class="movie-card"
+          [title]="movie.title"
+          [img]="movie.img"
+          [description]="movie.discr"
+          [genre]="movie.genre"
+          [link]="movie.link"
+          [author]="movie.author"
+          [year]="movie.year"
+        ></app-movie-card>
+      </div>
+    </div>
+  </div>

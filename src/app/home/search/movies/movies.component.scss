@@ -1,0 +1,14 @@
+.search-container {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    .movies-container {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      grid-template-rows: auto;
+      column-gap: 1rem;
+      row-gap: 1rem;
+    }
+  }
